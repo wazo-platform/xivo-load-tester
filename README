@@ -4,6 +4,8 @@ Dependencies
 * sipp with authentication support, PCAP play and gsl
   * see `compiling sipp with authentication support, PCAP play and gsl`_
 
+* sudo
+
 * argparse (if using python < 2.7)
   * apt-get install python-argparse
 

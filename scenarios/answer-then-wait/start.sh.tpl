@@ -1,4 +1,8 @@
 #!/bin/sh
 
-sipp -sf scenario.xml -p {{ bind_port }} {{ sipp_std_options }} {{ sipp_remote_host }}
+{% if rtp %}
+SUDO=sudo
+{% endif %}
+
+$SUDO sipp -sf scenario.xml -p {{ bind_port }} {{ sipp_std_options }} {{ sipp_remote_host }}
 

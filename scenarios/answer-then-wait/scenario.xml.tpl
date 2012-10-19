@@ -39,12 +39,22 @@
     t=0 0
     m=audio [media_port] RTP/AVP 3
     a=rtpmap:3 GSM/8000
+    a=ptime:20
+    a=sendrecv
 
   ]]>
 </send>
 
 <recv request="ACK">
 </recv>
+
+{% if rtp %}
+<nop>
+  <action>
+    <exec play_pcap_audio="../silence600s-gsm.pcap"/>
+  </action>
+</nop>
+{% endif %}
 
 <recv request="BYE">
 </recv>
