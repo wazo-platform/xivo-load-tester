@@ -19,10 +19,10 @@
     s=-
     c=IN IP[media_ip_type] [media_ip]
     t=0 0
-    m=audio [media_port] RTP/AVP 3 0 8
+    m=audio [media_port] RTP/AVP 3
     a=rtpmap:3 GSM/8000
-    a=rtpmap:0 PCMU/8000
-    a=rtpmap:8 PCMA/8000
+    a=ptime:20
+    a=sendrecv
 
   ]]>
 </send>
@@ -63,10 +63,10 @@
     s=-
     c=IN IP[media_ip_type] [media_ip]
     t=0 0
-    m=audio [media_port] RTP/AVP 3 0 8
+    m=audio [media_port] RTP/AVP 3
     a=rtpmap:3 GSM/8000
-    a=rtpmap:0 PCMU/8000
-    a=rtpmap:8 PCMA/8000
+    a=ptime:20
+    a=sendrecv
 
   ]]>
 </send>
