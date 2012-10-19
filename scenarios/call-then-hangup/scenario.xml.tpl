@@ -97,6 +97,14 @@
   ]]>
 </send>
 
+{% if rtp %}
+<nop>
+  <action>
+    <exec play_pcap_audio="../silence600s-gsm.pcap"/>
+  </action>
+</nop>
+{% endif %}
+
 <pause{% for k, v in (pause|default({})).iteritems() %} {{ k }}="{{ v }}"{% endfor %}/>
 
 <send>
