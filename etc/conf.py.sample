@@ -16,7 +16,8 @@ sipp_rate_period_in_ms = 1000
 #sipp_enable_trace_shortmsg = True
 #sipp_enable_trace_stat = True
 
-## scenarios configuration
+
+## global scenarios configuration
 
 bind_port = 5060
 
@@ -42,16 +43,33 @@ pause = {
 
 rtp = True
 
-#scenarios.answer_then_wait.bind_port = 5060
 
-#scenarios.call_then_cancel_on_ringing.calling_line = calling_line
-scenarios.call_then_cancel_on_ringing.called_extens = ['1']
+## scenarios configuration
 
-#scenarios.call_then_hangup.calling_line = calling_line
-scenarios.call_then_hangup.called_extens = ['1']
+scenarios.answer_then_hangup.bind_port = bind_port
+scenarios.answer_then_hangup.ring_time = pause
+scenarios.answer_then_hangup.talk_time = pause
+scenarios.answer_then_hangup.rtp = rtp
 
-#scenarios.call_then_wait.calling_line = calling_line
-scenarios.call_then_wait.called_extens = ['1']
+scenarios.answer_then_wait.bind_port = bind_port
+scenarios.answer_then_wait.ring_time = pause
+scenarios.answer_then_wait.rtp = rtp
+
+scenarios.call_then_cancel_on_ringing.bind_port = bind_port + 1
+scenarios.call_then_cancel_on_ringing.calling_line = calling_line
+scenarios.call_then_cancel_on_ringing.called_extens = ['1001']
+scenarios.call_then_cancel_on_ringing.ring_time = pause
+
+scenarios.call_then_hangup.bind_port = bind_port + 1
+scenarios.call_then_hangup.calling_line = calling_line
+scenarios.call_then_hangup.called_extens = ['1001']
+scenarios.call_then_hangup.talk_time = pause
+scenarios.call_then_hangup.rtp = rtp
+
+scenarios.call_then_wait.bind_port = bind_port + 1
+scenarios.call_then_wait.calling_line = calling_line
+scenarios.call_then_wait.called_extens = ['1001']
+scenarios.call_then_wait.rtp = rtp
 
 scenarios.send_sip_register.lines = [
     {'username': 'ztb4uv', 'password': 'VG8RVR'},

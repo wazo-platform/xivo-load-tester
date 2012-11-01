@@ -18,7 +18,11 @@
   ]]>
 </send>
 
-<pause{% for k, v in (pause|default({})).iteritems() %} {{ k }}="{{ v }}"{% endfor %}/>
+<pause
+    {% for k, v in ring_time.iteritems() -%}
+    {{ k }}="{{ v }}"
+    {% endfor %}
+ />
 
 <send retrans="500">
   <![CDATA[

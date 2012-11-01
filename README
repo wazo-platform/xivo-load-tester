@@ -39,14 +39,6 @@ Compiling sipp with authentication support, PCAP play and gsl
       # cp sipp /usr/local/bin
 
 
-Installation
-============
-
-To copy the project on trafgen, you can use the following command::
-
-   rsync -v --exclude '*.pyc' --delete -rtlp * trafgen@trafgen:load-tester/
-
-
 Usage
 =====
 
