@@ -18,11 +18,7 @@
   ]]>
 </send>
 
-<pause
-    {% for k, v in ring_time.iteritems() -%}
-    {{ k }}="{{ v }}"
-    {% endfor %}
- />
+{{ ring_time|sipp_pause }}
 
 <send retrans="500">
   <![CDATA[
@@ -60,11 +56,7 @@
 </nop>
 {% endif %}
 
-<pause
-    {% for k, v in talk_time.iteritems() -%}
-    {{ k }}="{{ v }}"
-    {% endfor %}
- />
+{{ talk_time|sipp_pause }}
 
 <send>
   <![CDATA[

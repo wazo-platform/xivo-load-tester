@@ -24,8 +24,13 @@ class _TemplatesProcessor(object):
     def __init__(self, directory, context):
         self._directory = directory
         self._context = context
-        self._environment = Environment(loader=FileSystemLoader(directory),
-                                        undefined=StrictUndefined)
+        self._environment = self._new_environment(directory)
+
+    def _new_environment(self, directory):
+        env = Environment(loader=FileSystemLoader(directory),
+                          undefined=StrictUndefined)
+        env.filters['sipp_pause'] = _sipp_pause_filter
+        return env
 
     def generate_files(self):
         for tpl_filename in self._list_template_filenames():
@@ -47,3 +52,8 @@ class _TemplatesProcessor(object):
     def _get_template_destination(self, tpl_filename):
         filename = tpl_filename[:-self._TEMPLATE_SUFFIX_LENGTH]
         return os.path.join(self._directory, filename)
+
+
+def _sipp_pause_filter(value):
+    attributes = ' '.join('%s="%s"' % item for item in value.iteritems())
+    return '<pause %s />' % attributes

@@ -105,11 +105,7 @@
 </nop>
 {% endif %}
 
-<pause
-    {% for k, v in talk_time.iteritems() -%}
-    {{ k }}="{{ v }}"
-    {% endfor %}
- />
+{{ talk_time|sipp_pause }}
 
 <send>
   <![CDATA[
