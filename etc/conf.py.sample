@@ -41,7 +41,7 @@ pause = {
 #    'stdev': 1000,
 #}
 
-rtp = True
+rtp = 'silence600s-gsm.pcap'
 
 
 ## scenarios configuration

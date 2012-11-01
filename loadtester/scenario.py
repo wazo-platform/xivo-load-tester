@@ -30,6 +30,7 @@ class _TemplatesProcessor(object):
         env = Environment(loader=FileSystemLoader(directory),
                           undefined=StrictUndefined)
         env.filters['sipp_pause'] = _sipp_pause_filter
+        env.filters['sipp_rtp'] = _sipp_rtp_filter
         return env
 
     def generate_files(self):
@@ -54,6 +55,13 @@ class _TemplatesProcessor(object):
         return os.path.join(self._directory, filename)
 
 
-def _sipp_pause_filter(value):
-    attributes = ' '.join('%s="%s"' % item for item in value.iteritems())
+def _sipp_pause_filter(pause_dict):
+    attributes = ' '.join('%s="%s"' % item for item in pause_dict.iteritems())
     return '<pause %s />' % attributes
+
+
+def _sipp_rtp_filter(rtp_filename):
+    if not rtp_filename:
+        return ''
+
+    return '<nop><action><exec play_pcap_audio="../%s"/></action></nop>' % rtp_filename

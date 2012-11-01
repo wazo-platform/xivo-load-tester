@@ -97,13 +97,7 @@
   ]]>
 </send>
 
-{% if rtp %}
-<nop>
-  <action>
-    <exec play_pcap_audio="../silence600s-gsm.pcap"/>
-  </action>
-</nop>
-{% endif %}
+{{ rtp|sipp_rtp }}
 
 {{ talk_time|sipp_pause }}
 
