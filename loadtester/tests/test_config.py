@@ -6,6 +6,7 @@ from loadtester.config import ScenarioConfig
 
 
 class TestScenarioConfig(unittest.TestCase):
+
     def test_simple_config(self):
         config_content = "a = 'a'\n"
 
@@ -16,7 +17,7 @@ class TestScenarioConfig(unittest.TestCase):
 
     def _new_context(self, context=None):
         base_context = {'sipp_std_options': ''}
-        if base_context is not None:
+        if context is not None:
             base_context.update(context)
         return base_context
 
@@ -40,7 +41,7 @@ class TestScenarioConfig(unittest.TestCase):
 
     def test_config_using_scenarios_variable(self):
         config_content = """\
-scenarios.s1.a = 's1.a'
+scenarios.s1 = dict(a='s1.a')
 """
 
         config = ScenarioConfig(config_content)
@@ -50,7 +51,7 @@ scenarios.s1.a = 's1.a'
 
     def test_global_variables_doesnt_override_scenario_variable(self):
         config_content = """\
-scenarios.s1.a = 's1.a'
+scenarios.s1 = dict(a='s1.a')
 a = 'a'
 """
 
@@ -60,7 +61,7 @@ a = 'a'
         self.assertEqual(expected_context, config.get_context_for_scenario('s1'))
 
     def test_hyphen_are_converted_to_underscore(self):
-        config_content = "scenarios.s_1.a = 's_1.a'\n"
+        config_content = "scenarios.s_1 = dict(a='s_1.a')\n"
 
         config = ScenarioConfig(config_content)
 

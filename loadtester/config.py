@@ -7,6 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 class ScenarioConfig(object):
+
     def __init__(self, config_content):
         self._config = {}
         self._scenarios = _ScenariosObject()
@@ -21,8 +22,8 @@ class ScenarioConfig(object):
     def get_context_for_scenario(self, scenario_name):
         context = dict(self._config)
         attribute_name = scenario_name.replace('-', '_')
-        scenario_object = getattr(self._scenarios, attribute_name)
-        context.update(scenario_object.__dict__)
+        scenario_dict = getattr(self._scenarios, attribute_name, {})
+        context.update(scenario_dict)
         context['sipp_std_options'] = self._compute_sipp_std_options(context)
         self._emit_deprecation_warning(context)
         return context
@@ -66,12 +67,4 @@ class ScenarioConfig(object):
 
 
 class _ScenariosObject(object):
-    def __init__(self):
-        self._scenarios = {}
-
-    def __getattr__(self, name):
-        return self._scenarios.setdefault(name, _ScenarioObject())
-
-
-class _ScenarioObject(object):
     pass

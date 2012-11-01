@@ -47,33 +47,45 @@ rtp = 'test3s-gsm.pcap'
 
 ## scenarios configuration
 
-scenarios.answer_then_hangup.bind_port = bind_port
-scenarios.answer_then_hangup.ring_time = pause
-scenarios.answer_then_hangup.talk_time = pause
-scenarios.answer_then_hangup.rtp = rtp
+scenarios.answer_then_hangup = dict(
+    bind_port = bind_port,
+    ring_time = pause,
+    talk_time = pause,
+    rtp = rtp,
+)
 
-scenarios.answer_then_wait.bind_port = bind_port
-scenarios.answer_then_wait.ring_time = pause
-scenarios.answer_then_wait.rtp = rtp
+scenarios.answer_then_wait = dict(
+    bind_port = bind_port,
+    ring_time = pause,
+    rtp = rtp,
+)
 
-scenarios.call_then_cancel_on_ringing.bind_port = bind_port + 1
-scenarios.call_then_cancel_on_ringing.calling_line = calling_line
-scenarios.call_then_cancel_on_ringing.called_extens = ['1001']
-scenarios.call_then_cancel_on_ringing.ring_time = pause
+scenarios.call_then_cancel_on_ringing = dict(
+    bind_port = bind_port,
+    calling_line = calling_line,
+    called_extens = ['1001'],
+    ring_time = pause,
+)
 
-scenarios.call_then_hangup.bind_port = bind_port + 1
-scenarios.call_then_hangup.calling_line = calling_line
-scenarios.call_then_hangup.called_extens = ['1001']
-scenarios.call_then_hangup.talk_time = pause
-scenarios.call_then_hangup.rtp = rtp
+scenarios.call_then_hangup = dict(
+    bind_port = bind_port,
+    calling_line = calling_line,
+    called_extens = ['1001'],
+    talk_time = pause,
+    rtp = rtp,
+)
 
-scenarios.call_then_wait.bind_port = bind_port + 1
-scenarios.call_then_wait.calling_line = calling_line
-scenarios.call_then_wait.called_extens = ['1001']
-scenarios.call_then_wait.rtp = rtp
+scenarios.call_then_wait = dict(
+    bind_port = bind_port,
+    calling_line = calling_line,
+    called_extens = ['1001'],
+    rtp = rtp,
+)
 
-scenarios.send_sip_register.lines = [
-    {'username': 'ztb4uv', 'password': 'VG8RVR'},
-    {'username': '1m9o7d', 'password': 'ORHHI1'},
-]
-scenarios.send_sip_register.expires = 120
+scenarios.send_sip_register = dict(
+    lines = [
+        {'username': 'ztb4uv', 'password': 'VG8RVR'},
+        {'username': '1m9o7d', 'password': 'ORHHI1'},
+    ],
+    expires = 120,
+)
