@@ -8,6 +8,7 @@ from loadtester.scenario import Scenario, _TemplatesProcessor
 
 
 class TestScenario(unittest.TestCase):
+
     def test_scenario_name_from_simple_dir(self):
         scenario_src = Scenario('foo')
 
@@ -30,6 +31,7 @@ class TestScenario(unittest.TestCase):
 
 
 class TestTemplatesProcessor(unittest.TestCase):
+
     def setUp(self):
         self._tmp_dir = tempfile.mkdtemp()
 

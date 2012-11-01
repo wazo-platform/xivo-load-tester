@@ -5,6 +5,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 
 class Scenario(object):
+
     def __init__(self, directory):
         self.directory = directory
         self.name = self._extract_scenario_name()
@@ -18,6 +19,7 @@ class Scenario(object):
 
 
 class _TemplatesProcessor(object):
+
     _TEMPLATE_SUFFIX = '.tpl'
     _TEMPLATE_SUFFIX_LENGTH = len(_TEMPLATE_SUFFIX)
 
