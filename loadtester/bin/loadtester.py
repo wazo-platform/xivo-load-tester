@@ -23,7 +23,7 @@ def main():
         logger.setLevel(logging.INFO)
 
     scenario_runner = ScenarioRunner()
-    scenario = Scenario(parsed_args.scenario_dir)
+    scenario = Scenario(parsed_args.scenario_dir, parsed_args.run_dir)
     scenario_config = ScenarioConfig.new_from_filename(parsed_args.conf)
     scenario_runner.start_scenario(scenario, scenario_config)
 
@@ -38,10 +38,12 @@ def _init_logging():
 
 def _parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-v', '--verbose', action='store_true',
-                        help='increase verbosity')
     parser.add_argument('-c', '--conf', default=_CONFIG_FILE,
                         help='path to the config file')
+    parser.add_argument('-d', '--run-dir',
+                        help='run scenario in this directory')
+    parser.add_argument('-v', '--verbose', action='store_true',
+                        help='increase verbosity')
     parser.add_argument('scenario_dir',
                         help='path to the scenario directory')
     return parser.parse_args()

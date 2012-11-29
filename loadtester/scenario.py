@@ -1,21 +1,51 @@
 # -*- coding: UTF-8 -*-
 
-import os.path
+import errno
+import os
+import shutil
+import subprocess
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 
 class Scenario(object):
 
-    def __init__(self, directory):
+    def __init__(self, directory, run_directory=None):
+        if run_directory is None:
+            run_directory = directory
+
         self.directory = directory
+        self._run_directory = run_directory
         self.name = self._extract_scenario_name()
 
     def _extract_scenario_name(self):
         return os.path.basename(self.directory.rstrip("/"))
 
-    def prepare_start(self, context):
-        tpl_processor = _TemplatesProcessor(self.directory, context)
+    def prepare_run(self, context):
+        if self.directory != self._run_directory:
+            self._create_run_directory()
+            self._copy_files_into_run_directory()
+        self._generate_templates(context)
+
+    def _create_run_directory(self):
+        try:
+            os.mkdir(self._run_directory)
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                raise
+
+    def _copy_files_into_run_directory(self):
+        for filename in os.listdir(self.directory):
+            src_filename = os.path.join(self.directory, filename)
+            dst_filename = os.path.join(self._run_directory, filename)
+            shutil.copyfile(src_filename, dst_filename)
+
+    def _generate_templates(self, context):
+        tpl_processor = _TemplatesProcessor(self._run_directory, context)
         tpl_processor.generate_files()
+
+    def run(self):
+        process = subprocess.Popen(['sh', 'start.sh'], cwd=self._run_directory)
+        process.communicate()
 
 
 class _TemplatesProcessor(object):
