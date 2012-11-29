@@ -92,8 +92,9 @@ def _sipp_pause_filter(pause_dict):
     return '<pause %s />' % attributes
 
 
-def _sipp_rtp_filter(rtp_filename):
-    if not rtp_filename:
+def _sipp_rtp_filter(filename):
+    if not filename:
         return ''
 
-    return '<nop><action><exec play_pcap_audio="../%s"/></action></nop>' % rtp_filename
+    filename = os.path.abspath(os.path.join('pcap-audio', filename))
+    return '<nop><action><exec play_pcap_audio="%s"/></action></nop>' % filename
