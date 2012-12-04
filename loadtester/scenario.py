@@ -35,6 +35,9 @@ class Scenario(object):
 
     def _copy_files_into_run_directory(self):
         for filename in os.listdir(self.directory):
+            if filename.endswith('.csv'):
+                continue
+
             src_filename = os.path.join(self.directory, filename)
             dst_filename = os.path.join(self._run_directory, filename)
             shutil.copyfile(src_filename, dst_filename)
