@@ -19,6 +19,9 @@ class ScenarioConfig(object):
         del self._config['scenarios']
         del self._config['__builtins__']
 
+    def set_option(self, key, value):
+        self._config[key] = value
+
     def get_context_for_scenario(self, scenario_name):
         context = dict(self._config)
         attribute_name = scenario_name.replace('-', '_')
@@ -38,10 +41,11 @@ class ScenarioConfig(object):
     ]
 
     _SIPP_STD_FLAGS = [
+        ('sipp_background', '-bg'),
         ('sipp_enable_trace_calldebug', '-trace_calldebug'),
         ('sipp_enable_trace_err', '-trace_err'),
         ('sipp_enable_trace_shortmsg', '-trace_shortmsg'),
-        ('sipp_enable_trace_stat', '-trace_stat')
+        ('sipp_enable_trace_stat', '-trace_stat'),
     ]
 
     def _compute_sipp_std_options(self, context):

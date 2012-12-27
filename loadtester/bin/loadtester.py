@@ -22,9 +22,13 @@ def main():
         logger = logging.getLogger()
         logger.setLevel(logging.INFO)
 
-    scenario_runner = ScenarioRunner()
     scenario = Scenario(parsed_args.scenario_dir, parsed_args.run_dir)
+
     scenario_config = ScenarioConfig.new_from_filename(parsed_args.conf)
+    if parsed_args.background:
+        scenario_config.set_option('sipp_background', True)
+
+    scenario_runner = ScenarioRunner()
     scenario_runner.start_scenario(scenario, scenario_config)
 
 
@@ -38,6 +42,8 @@ def _init_logging():
 
 def _parse_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument('-b', '--background', action='store_true',
+                        help='run sipp in background')
     parser.add_argument('-c', '--conf', default=_CONFIG_FILE,
                         help='path to the config file')
     parser.add_argument('-d', '--run-dir',
