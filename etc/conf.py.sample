@@ -83,6 +83,13 @@ scenarios.call_then_wait = dict(
     rtp = rtp,
 )
 
+scenarios.call_then_wait_tel = dict(
+    bind_port = bind_port,
+    calling_line = calling_line,
+    called_extens = ['1001'],
+    rtp = rtp,
+)
+
 scenarios.send_sip_register = dict(
     lines = [
         {'username': 'ztb4uv', 'password': 'VG8RVR'},
