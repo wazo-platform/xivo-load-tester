@@ -85,9 +85,12 @@ scenarios.call_then_wait = dict(
 
 scenarios.call_then_wait_tel = dict(
     bind_port = bind_port,
+    request_uri = 'tel:+1001',
+    from_uri = '<tel:1234;phone-context=+555>',
+    to_uri = '<sip:1@example.org>',
+    contact_uri = '<sip:+5551234@[local_ip]:[local_port]>',
+    # in this scenario, calling_line is used for authentication only
     calling_line = calling_line,
-    called_extens = ['1001'],
-    rtp = rtp,
 )
 
 scenarios.send_sip_register = dict(

@@ -3,14 +3,14 @@
 
 <send retrans="500">
   <![CDATA[
-    INVITE tel:+[field2] SIP/2.0
+    INVITE {{ request_uri }} SIP/2.0
     Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
     Max-Forwards: 70
-    To: <tel:[field2]>
-    From: <sip:[field0]@[local_ip]:[local_port]>;tag=[call_number]
+    To: {{ to_uri }}
+    From: {{ from_uri }};tag=[call_number]
     Call-ID: [call_id]
     CSeq: [cseq] INVITE
-    Contact: <sip:[field0]@[local_ip]:[local_port]>
+    Contact: {{ contact_uri }}
     Content-Type: application/sdp
     Content-Length: [len]
 
@@ -32,11 +32,11 @@
 
 <send>
   <![CDATA[
-    ACK tel:+[field2] SIP/2.0
+    ACK {{ request_uri }} SIP/2.0
     Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
     Max-Forwards: 70
-    To: <tel:[field2]>[peer_tag_param]
-    From: <sip:[field0]@[local_ip]:[local_port]>;tag=[call_number]
+    To: {{ to_uri }}[peer_tag_param]
+    From: {{ from_uri }};tag=[call_number]
     Call-ID: [call_id]
     CSeq: [cseq] ACK
     Content-Length: 0
@@ -46,15 +46,15 @@
 
 <send retrans="500">
   <![CDATA[
-    INVITE tel:+[field2] SIP/2.0
+    INVITE {{ request_uri }} SIP/2.0
     Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
     Max-Forwards: 70
-    To: <tel:[field2]>
-    From: <sip:[field0]@[local_ip]:[local_port]>;tag=[call_number]
+    To: {{ to_uri }}
+    From: {{ from_uri }};tag=[call_number]
     Call-ID: [call_id]
     CSeq: [cseq] INVITE
-    Contact: <sip:[field0]@[local_ip]:[local_port]>
-    [field1]
+    Contact: {{ contact_uri }}
+    [field0]
     Content-Type: application/sdp
     Content-Length: [len]
 
@@ -85,19 +85,17 @@
 
 <send>
   <![CDATA[
-    ACK tel:+[field2] SIP/2.0
+    ACK {{ request_uri }} SIP/2.0
     Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
     Max-Forwards: 70
-    To: <tel:[field2]>[peer_tag_param]
-    From: <sip:[field0]@[local_ip]:[local_port]>;tag=[call_number]
+    To: {{ to_uri }}[peer_tag_param]
+    From: {{ from_uri }};tag=[call_number]
     Call-ID: [call_id]
     CSeq: [cseq] ACK
     Content-Length: 0
 
   ]]>
 </send>
-
-{{ rtp|sipp_rtp }}
 
 <recv request="BYE">
 </recv>
@@ -110,7 +108,7 @@
     [last_From:]
     [last_Call-ID:]
     [last_CSeq:]
-    Contact: <sip:[field0]@[local_ip]:[local_port]>
+    Contact: {{ contact_uri }}
     Content-Length: 0
 
   ]]>
