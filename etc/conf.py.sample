@@ -42,8 +42,19 @@ pause = {
 #    'stdev': 1000,
 #}
 
-rtp = 'test3s-gsm.pcap'
-#rtp = 'silence600s-gsm.pcap'
+codec = {
+	'name': 'ulaw',
+	'pt': 0,
+	'rtpmap': '0 PCMU/8000',
+}
+#codec = {
+#	'name': 'alaw',
+#	'pt': 8,
+#	'rtpmap': '8 PCMA/8000',
+#}
+
+rtp = 'test3s'
+#rtp = 'silence600s'
 
 
 ## scenarios configuration
@@ -52,12 +63,14 @@ scenarios.answer_then_hangup = dict(
     bind_port = bind_port,
     ring_time = pause,
     talk_time = pause,
+    codec = codec,
     rtp = rtp,
 )
 
 scenarios.answer_then_wait = dict(
     bind_port = bind_port,
     ring_time = pause,
+    codec = codec,
     rtp = rtp,
 )
 
@@ -73,6 +86,7 @@ scenarios.call_then_hangup = dict(
     calling_line = calling_line,
     called_extens = ['1001'],
     talk_time = pause,
+    codec = codec,
     rtp = rtp,
 )
 
@@ -80,6 +94,7 @@ scenarios.call_then_wait = dict(
     bind_port = bind_port,
     calling_line = calling_line,
     called_extens = ['1001'],
+    codec = codec,
     rtp = rtp,
 )
 

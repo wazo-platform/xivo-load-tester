@@ -19,8 +19,8 @@
     s=-
     c=IN IP[media_ip_type] [media_ip]
     t=0 0
-    m=audio [media_port] RTP/AVP 3
-    a=rtpmap:3 GSM/8000
+    m=audio [media_port] RTP/AVP {{ codec['pt'] }}
+    a=rtpmap:{{ codec['rtpmap'] }}
     a=ptime:20
     a=sendrecv
 
@@ -63,8 +63,8 @@
     s=-
     c=IN IP[media_ip_type] [media_ip]
     t=0 0
-    m=audio [media_port] RTP/AVP 3
-    a=rtpmap:3 GSM/8000
+    m=audio [media_port] RTP/AVP {{ codec['pt'] }}
+    a=rtpmap:{{ codec['rtpmap'] }}
     a=ptime:20
     a=sendrecv
 
