@@ -4,8 +4,6 @@ Dependencies
 * sipp with OpenSSL, RTP streaming and GSL support
   * see `compiling sipp`_
 
-* sudo
-
 * argparse (if using python < 2.7)
   * apt-get install python-argparse
 
