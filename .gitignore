@@ -1,2 +1,3 @@
 !*.xml
 etc/conf.py
+*.pyc
