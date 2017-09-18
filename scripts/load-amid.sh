@@ -13,7 +13,7 @@ fi
 
 for ((n=0;n<${RUNTIME};n++)); do
 	token=$(curl -k -i POST -H 'Content-Type: application/json' -u "${USERNAME}:${PASSWORD}" "https://localhost:9497/0.1/token" -d "{\"backend\": \"${BACKEND}\"}" 2>/dev/null | tail -n 1 | jq  -r ".data | .token")
-	curl -k -i -s -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H "X-Auth-Token: ${token}" 'https://pcm-dev-0:9491/1.0/action/QueueSummary'
+	curl -k -i -s -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H "X-Auth-Token: ${token}" 'https://localhost:9491/1.0/action/QueueSummary'
 	sleep 1
 done
 
