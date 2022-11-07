@@ -63,6 +63,9 @@ This version of load-tester has been tested against sipp 3.4.1.
 * Sender scenario are run in `/var/www/load-monitor-v2/logs/sip_logs/`
 * Receiver scenario are run in `/home/trafgen/xivo-load-tester/scenarios/`
 
+To get a view of the sender sipp, send SIGUSR2 to the PID, then check for
+`*_screen.log` files in the log directory.
+
 ### Configuration
 * Configuration file is `/home/trafgen/xivo-load-tester/etc/conf-xivo-load.py`
 
