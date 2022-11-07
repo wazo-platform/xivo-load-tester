@@ -30,7 +30,7 @@
 <recv response="401" auth="true">
 </recv>
 
-<send retrans="500">
+<send>
   <![CDATA[
     ACK sip:[field2]@[remote_ip]:[remote_port] SIP/2.0
     Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
@@ -83,7 +83,7 @@
 <recv response="200">
 </recv>
 
-<send retrans="500">
+<send>
   <![CDATA[
     ACK sip:[field2]@[remote_ip]:[remote_port] SIP/2.0
     Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
