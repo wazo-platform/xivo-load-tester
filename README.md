@@ -10,6 +10,8 @@ Copy etc/conf.py.sample to etc/conf.py and edit the latter.
 
 Run `./load-tester scenarios/your-scenario`
 
+To store logs in a specific directory, use `./load-tester -d /var/log/somewhere scenarios/your-scenario`.
+
 ## Dependencies
 
 * sipp with OpenSSL, RTP streaming and GSL support
@@ -51,7 +53,7 @@ This version of load-tester has been tested against sipp 3.4.1.
     * started and stopped from load-monitor
     * scenario: call-then-hangup
   * one for answering calls (agents)
-    * started once manually
+    * started once manually in a tmux with: ./load-tester -d /var/log/load-tester-answer-then-wait scenarios/answer-then-wait/
     * scenario: answer-then-wait
 * The incoming calls come from one SIP "trunk" `loadtester`, simulated by SIPp scenario call-then-hangup
 * The agents are called on lines simulated by SIPp scenario answer-then-wait
