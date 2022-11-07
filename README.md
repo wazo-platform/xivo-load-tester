@@ -58,10 +58,13 @@ This version of load-tester has been tested against sipp 3.4.1.
 * Lines are set with a hardcoded Contact SIP to direct calls to `trafgen`, so they don't need to REGISTER
 * Lines have `qualify_frequency = 0` to avoid OPTIONS messages in the middle of SIPp scenarios
 
-### Configuration
-* Configuration file is `/home/tranfgen/xivo-load-tester/etc/conf-xivo-load.py`
+### Logs
+
 * Sender scenario are run in `/var/www/load-monitor-v2/logs/sip_logs/`
 * Receiver scenario are run in `/home/trafgen/xivo-load-tester/scenarios/`
+
+### Configuration
+* Configuration file is `/home/trafgen/xivo-load-tester/etc/conf-xivo-load.py`
 
 ### Current scenarios
 
