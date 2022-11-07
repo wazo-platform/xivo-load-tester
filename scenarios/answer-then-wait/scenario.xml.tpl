@@ -4,7 +4,7 @@
 <recv request="INVITE">
 </recv>
 
-<send retrans="500">
+<send>
   <![CDATA[
     SIP/2.0 180 Ringing
     [last_Via:]
@@ -53,7 +53,7 @@
 <recv request="BYE">
 </recv>
 
-<send retrans="500">
+<send>
   <![CDATA[
     SIP/2.0 200 OK
     [last_Via:]
