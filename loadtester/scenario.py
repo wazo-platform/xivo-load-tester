@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2013 Avencall
+# Copyright 2013-2023 The Wazo Authors  (see the AUTHORS file)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -106,7 +106,7 @@ class _TemplatesProcessor(object):
 
 
 def _sipp_pause_filter(pause_dict):
-    attributes = ' '.join('%s="%s"' % item for item in pause_dict.iteritems())
+    attributes = ' '.join('%s="%s"' % item for item in pause_dict.items())
     return '<pause %s />' % attributes
 
 

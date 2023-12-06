@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2013 Avencall
+# Copyright 2013-2023 The Wazo Authors  (see the AUTHORS file)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ class ScenarioConfig(object):
 
     def _read_config(self, config_content):
         self._config['scenarios'] = self._scenarios
-        exec config_content in self._config
+        exec(config_content, self._config)
         del self._config['scenarios']
         del self._config['__builtins__']
 
