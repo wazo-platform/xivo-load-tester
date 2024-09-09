@@ -57,8 +57,8 @@ This version of load-tester has been tested against sipp 3.4.1.
     * scenario: answer-then-wait
 * The incoming calls come from one SIP "trunk" `loadtester`, simulated by SIPp scenario call-then-hangup
 * The agents are called on lines simulated by SIPp scenario answer-then-wait
-* Lines are set with a hardcoded Contact SIP to direct calls to `trafgen`, so they don't need to REGISTER
-* Lines have `qualify_frequency = 0` to avoid OPTIONS messages in the middle of SIPp scenarios
+* Agent lines are set with a hardcoded Contact SIP to direct calls to `trafgen`, so they don't need to REGISTER
+* Agent lines have `qualify_frequency = 0` to avoid OPTIONS messages in the middle of SIPp scenarios
 
 ### Logs
 
@@ -70,7 +70,9 @@ To get a view of the sender sipp, send SIGUSR2 to the PID, then check for
 `*_screen.log` files in the log directory.
 
 ### Configuration
-* Configuration file is `/home/trafgen/xivo-load-tester/etc/conf-xivo-load.py`
+
+* Configuration file is `/home/trafgen/xivo-load-tester/etc/conf.py` for receiving calls
+* Configuration file is `/home/trafgen/xivo-load-tester/etc/conf-wazo-load.py` for placing calls
 
 ### Current scenarios
 
