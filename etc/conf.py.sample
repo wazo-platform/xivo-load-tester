@@ -124,3 +124,11 @@ scenarios.send_sip_register = dict(
     ],
     expires = 120,
 )
+
+scenarios.register_then_answer_and_wait = dict(
+    lines = [
+        {'username': '10001', 'password': 'mxybicip'},
+        {'username': '10002', 'password': 'sthlqfsb'},
+    ],
+    expires = 120,
+)
