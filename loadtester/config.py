@@ -56,6 +56,7 @@ class ScenarioConfig(object):
     ]
 
     _SIPP_STD_FLAGS = [
+        ('sipp_auto_answer', '-aa'),
         ('sipp_background', '-bg'),
         ('sipp_enable_trace_calldebug', '-trace_calldebug'),
         ('sipp_enable_trace_err', '-trace_err'),
