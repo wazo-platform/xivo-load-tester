@@ -7,6 +7,7 @@ sipp_remote_host = 'skaro-load'
 sipp_local_ip = '192.168.32.241'
 sipp_call_rate = 1.0
 sipp_rate_period_in_ms = 1000
+sipp_auto_answer = True
 #sipp_max_simult_calls = 3
 #sipp_nb_of_calls_before_exit = 4
 #sipp_background = False
@@ -121,6 +122,14 @@ scenarios.send_sip_register = dict(
     lines = [
         {'username': 'ztb4uv', 'password': 'VG8RVR'},
         {'username': '1m9o7d', 'password': 'ORHHI1'},
+    ],
+    expires = 120,
+)
+
+scenarios.register_then_answer_and_wait = dict(
+    lines = [
+        {'username': '10001', 'password': 'mxybicip'},
+        {'username': '10002', 'password': 'sthlqfsb'},
     ],
     expires = 120,
 )

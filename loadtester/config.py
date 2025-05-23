@@ -47,7 +47,7 @@ class ScenarioConfig(object):
         return context
 
     _SIPP_STD_OPTIONS = [
-        ('sipp_local_ip', '-i'),
+        # ('sipp_local_ip', '-i'),
         ('sipp_call_rate', '-r'),
         ('sipp_pause_in_ms', '-d'),
         ('sipp_rate_period_in_ms', '-rp'),
@@ -56,6 +56,7 @@ class ScenarioConfig(object):
     ]
 
     _SIPP_STD_FLAGS = [
+        ('sipp_auto_answer', '-aa'),
         ('sipp_background', '-bg'),
         ('sipp_enable_trace_calldebug', '-trace_calldebug'),
         ('sipp_enable_trace_err', '-trace_err'),
