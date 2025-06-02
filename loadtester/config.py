@@ -53,7 +53,6 @@ class ScenarioConfig(object):
         ('sipp_rate_period_in_ms', '-rp'),
         ('sipp_max_simult_calls', '-l'),
         ('sipp_nb_of_calls_before_exit', '-m'),
-        ('sipp_time_before_execution', '-wait'),
     ]
 
     _SIPP_STD_FLAGS = [
