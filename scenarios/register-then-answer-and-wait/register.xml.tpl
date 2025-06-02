@@ -40,5 +40,7 @@
 <recv response="200">
 </recv>
 
+{{ registration_time|sipp_pause }}
+
 </scenario>
 
