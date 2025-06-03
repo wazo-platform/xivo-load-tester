@@ -47,7 +47,6 @@ class ScenarioConfig(object):
         return context
 
     _SIPP_STD_OPTIONS = [
-        # ('sipp_local_ip', '-i'),
         ('sipp_call_rate', '-r'),
         ('sipp_pause_in_ms', '-d'),
         ('sipp_rate_period_in_ms', '-rp'),
