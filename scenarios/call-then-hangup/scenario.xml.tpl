@@ -27,6 +27,9 @@
   ]]>
 </send>
 
+<recv response="100" optional="true">
+</recv>
+
 <recv response="401" auth="true">
 </recv>
 
