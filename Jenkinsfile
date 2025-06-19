@@ -23,7 +23,7 @@ pipeline {
     }
     post {
         failure {
-        mattermostSend color: 'danger', channel: '#dev-failed-tests', message: "Daily Ansible roles tests [failed :nuke:](${JOB_URL})"
+        mattermostSend color: 'danger', channel: '#dev-failed-tests', message: "xivo-load-tester [failed :nuke:](${JOB_URL})"
         }
     }
 }
