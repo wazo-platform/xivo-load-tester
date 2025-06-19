@@ -36,7 +36,7 @@
 <send>
   <![CDATA[
     ACK sip:[field2]@[remote_ip]:[remote_port] SIP/2.0
-    Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+    Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch-3]
     Max-Forwards: 70
     To: <sip:[field2]@[remote_ip]:[remote_port]>[peer_tag_param]
     From: <sip:[field0]@[local_ip]:[local_port]>;tag=[call_number]
