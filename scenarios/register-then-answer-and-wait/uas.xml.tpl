@@ -8,6 +8,7 @@
   <![CDATA[
     SIP/2.0 180 Ringing
     [last_Via:]
+    [last_Record-Route:]
     [last_To:];tag=[call_number]
     [last_From:]
     [last_Call-ID:]
@@ -24,6 +25,7 @@
   <![CDATA[
     SIP/2.0 200 OK
     [last_Via:]
+    [last_Record-Route:]
     [last_To:];tag=[call_number]
     [last_From:]
     [last_Call-ID:]
@@ -57,6 +59,7 @@
   <![CDATA[
     SIP/2.0 200 OK
     [last_Via:]
+    [last_Record-Route:]
     [last_To:]
     [last_From:]
     [last_Call-ID:]
