@@ -23,6 +23,7 @@ bind_port = 5060
 calling_line = {
     'username': 'loadtester',
     'password': 'loadtester',
+    'caller_id': '15550000001',
 }
 
 pause = {
